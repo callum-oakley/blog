@@ -3,7 +3,7 @@
 html {
   font-family: "Merriweather", serif;
   font-size: 16pt;
-  line-height: 1.5;
+  line-height: 1.4;
   margin: auto;
   max-width: 45rem;
   padding: 0 0 5rem 0;
@@ -35,7 +35,7 @@ pre {
 }
 
 p > code {
-  padding: 0.25rem;
+  padding: 0 0.25rem;
 }
 
 a {
