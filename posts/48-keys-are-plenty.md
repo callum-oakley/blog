@@ -1,5 +1,5 @@
 +++
-title = "48 keys is plenty"
+title = "48 keys are plenty"
 date = "1st of June 2019"
 +++
 
@@ -9,7 +9,7 @@ I use my computer a lot, and I mostly interact with it through text, so taking s
 
 Apart from occasionally using the internal keyboard on my laptop I haven't used another keyboard since making the switch, and am fully convinced that the Planck is an improvement on a conventional board in every way. Bear with me.
 
-The most core premise in the design of the Planck is that your fingers should never have to move more than one (well, `sqrt 2` at the corners) unit away from the home position to hit any key (looking at you `+=}]`). This naturally gives us a 3 by 12 grid of keys for the 8 fingers to work with.
+The core premise in the design of the Planck is that your fingers should never have to move more than one unit (or diagonal) away from the home position to hit any key (looking at you `+`, `=`, `}`, `]`). This naturally gives us a 3 by 12 grid of keys for the 8 fingers to work with.
 
     . . . . . . . . . . . .
     . x x x x . . x x x x .
@@ -22,7 +22,7 @@ The next key observation is that the thumbs can do a lot more than we normally t
     . z x c v b n m . . . .
     . . . . . . _ . . . . .
 
-You'll also notice that the keys on the Planck are arranged in a grid. This makes every movement away from the home row completely regular – it's always the same distance, exactly up, down, left, or right. Conventional keyboards staggered to imitate typewriters, where the stagger was a requirement to prevent the key levers from getting in the way of one another, but comes at the cost of making certain keys harder to reach than others Look how much harder it is to reach `b` than `n` – on a grid they are the same.
+You'll also notice that the keys on the Planck are arranged in a grid. This makes every movement away from the home row completely regular – it's always the same distance, exactly up, down, left, or right. Conventional keyboards are staggered to imitate typewriters, where the stagger was a requirement to prevent the key levers from getting in the way of one another, but this comes at the cost of making certain keys harder to reach than others. Look how much harder it is to reach `b` than `n` – on a grid they are the same.
 
 > But what about numbers and symbols?! You could never program with so few keys.
 
@@ -48,11 +48,11 @@ Depressing `sym` takes us to a layer of symbols and numbers:
 
 And depressing `mov` takes us to a layer with movement keys (arrow cluster, home, end, page up/down, window management hotkeys).
 
-I'm a full time software developer, so I type a lot of symbols, and whenever I have to use a conventional keyboard I'm frustrated by how much longer it takes to reach them. With thumb modifiers typing symbols and number is *easier* than typing upper case letters with shift. It would be a bold claim indeed to assert the same about the situation on a full sized keyboard.
+I'm a full time software developer, so I type a lot of symbols, and whenever I have to use a conventional keyboard I'm frustrated by how much longer it takes to reach them. With thumb modifiers typing symbols and number is *easier than typing upper case letters with shift*. It would be a bold claim indeed to assert the same about the situation on a full sized keyboard.
 
 The final trump card of the Planck is its programability. If you're sold on the physical layout, then the wonderful [QMK firmware][] can be endlessly customised. Here's [my keymap][] for reference, but QMK supports a whole host of advanced features that I've never touched.
 
-This is a distillation of explanations that I usually end up giving to colleagues and friends after they inevitably ask, "What is that thing on your desk?", and when I read the knee jerk reaction online that keyboards like the Planck are cute and interesting, but that you couldn't possibly get any real work done with them. I don't think this board is for everyone, but I hope if nothing else I've convinced you that time spent thinking about your keyboard can be just as valuable as time spent tinkering with your vim config.
+This is a distillation of explanations that I give to colleagues and friends after they inevitably ask, "What is that thing on your desk?", or a response to the common knee jerk reaction online that keyboards like the Planck are cute and interesting, but that you couldn't possibly get any real work done with them. I don't think this board is for everyone, but I hope if nothing else I've convinced you that time spent thinking about your keyboard can be just as valuable as time spent tinkering with your vim config.
 
 [Planck]: https://olkb.com/planck
 [Colemak]: https://colemak.com/

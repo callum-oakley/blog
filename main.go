@@ -53,15 +53,32 @@ func newPost(r *bufio.Reader) (post, error) {
 	return p, nil
 }
 
+func copyToBuild(path string) error {
+	return os.Link(path, filepath.Join("build", path))
+}
+
 func main() {
+	if err := os.RemoveAll("build"); err != nil {
+		log.Fatal(err)
+	}
+
+	if err := os.MkdirAll(filepath.Join("build", "posts"), os.ModePerm); err != nil {
+		log.Fatal(err)
+	}
+
+	if err := copyToBuild("style.css"); err != nil {
+		log.Fatal(err)
+	}
+
 	files, err := ioutil.ReadDir("posts")
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	for _, file := range files {
+		path := filepath.Join("posts", file.Name())
 		if filepath.Ext(file.Name()) == ".md" {
-			in, err := os.Open(filepath.Join("posts", file.Name()))
+			in, err := os.Open(path)
 			if err != nil {
 				log.Fatal(err)
 			}
@@ -72,13 +89,17 @@ func main() {
 			}
 
 			out, err := os.Create(
-				filepath.Join("posts", strings.TrimSuffix(file.Name(), ".md")+".html"),
+				filepath.Join("build", "posts", strings.TrimSuffix(file.Name(), ".md")+".html"),
 			)
 			if err != nil {
 				log.Fatal(err)
 			}
 
 			if err := postTemplate.Execute(out, p); err != nil {
+				log.Fatal(err)
+			}
+		} else {
+			if err := copyToBuild(path); err != nil {
 				log.Fatal(err)
 			}
 		}
