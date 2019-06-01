@@ -29,6 +29,7 @@ code {
 
 pre {
   background-color: WhiteSmoke;
+  overflow: scroll;
   padding: 1rem;
 }
 
