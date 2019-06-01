@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>48 keys is plenty</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+  </head>
+  <body>
+    <header>
+      <p>Callum Oakley</p>
+    </header>
+    <h1>
+      48 keys is plenty
+    </h1>
+    <div>
+      <p>I use my computer a lot, and I mostly interact with it through text, so taking some time to think about my keyboard is certainly time well spent. For about three years now, I&rsquo;ve been a devoted user of the <a href="https://olkb.com/planck">Planck</a>: a programmable grid of 48 single unit keys.</p>
+
+<p><img src="planck.jpg" alt="planck" /></p>
+
+<p>Apart from occasionally using the internal keyboard on my laptop I haven&rsquo;t used another keyboard since making the switch, and am fully convinced that the Planck is an improvement on a conventional board in every way. Bear with me.</p>
+
+<p>The most core premise in the design of the Planck is that your fingers should never have to move more than one (well, <code>sqrt 2</code> at the corners) unit away from the home position to hit any key (looking at you <code>+=}]</code>). This naturally gives us a 3 by 12 grid of keys for the 8 fingers to work with.</p>
+
+<pre><code>. . . . . . . . . . . .
+. x x x x . . x x x x .
+. . . . . . . . . . . .
+</code></pre>
+
+<p>The next key observation is that the thumbs can do a lot more than we normally task them with. The space bar is a huge waste of space, especially if our hands aren&rsquo;t moving around as much as they would be on a full sized keyboard. In fact it&rsquo;s no harder to hit a single unit space &ldquo;bar&rdquo; with the thumb than it is any other single unit key, so we can have a bottom row of another 12 one unit keys for the full compliment of 48 keys. This nicely fits all our alphas, all the usual modifiers, and then some.</p>
+
+<pre><code>. q w e r t y u i o p .
+. a s d f g h j k l . .
+. z x c v b n m . . . .
+. . . . . . _ . . . . .
+</code></pre>
+
+<p>You&rsquo;ll also notice that the keys on the Planck are arranged in a grid. This makes every movement away from the home row completely regular – it&rsquo;s always the same distance, exactly up, down, left, or right. Conventional keyboards staggered to imitate typewriters, where the stagger was a requirement to prevent the key levers from getting in the way of one another, but comes at the cost of making certain keys harder to reach than others Look how much harder it is to reach <code>b</code> than <code>n</code> – on a grid they are the same.</p>
+
+<blockquote>
+<p>But what about numbers and symbols?! You could never program with so few keys.</p>
+</blockquote>
+
+<p>To which I respond:</p>
+
+<blockquote>
+<p>But what about capital letters? You could never write a full sentence with so few keys.</p>
+</blockquote>
+
+<p>In much the same way as the shift keys allow us to use a single key to represent both <code>a</code> and <code>A</code> (the upper case &ldquo;layer&rdquo; if you like), we can introduce more modifiers to take us to a layer of symbols, movement keys, media keys, a macro pad. Better still, we can position these modifiers on our freed up bottom row, so that they can be held with a thumb. I would far rather depress a key under my thumb to access symbols on the home row than move my fingers two keys up to a number row <em>and</em> have to hit shift (and don&rsquo;t get me started on moving your hand to the arrow cluster).</p>
+
+<p>To illustrate, this is what the base layer on my keyboard currently looks like (I&rsquo;m also a <a href="https://colemak.com/">Colemak</a> user, but that&rsquo;s a story for another day&hellip;):</p>
+
+<pre><code>tab  q   w   f   p   g   j   l   u   y   ;   -
+bsp  a   r   s   t   d   h   n   e   i   o   '
+shi  z   x   c   v   b   k   m   ,   .   /  shi
+fun ctr alt cmd sym ent spc mov cmd ctr alt fun
+</code></pre>
+
+<p>Depressing <code>sym</code> takes us to a layer of symbols and numbers:</p>
+
+<pre><code>esc  1   2   3   4   5   6   7   8   9   0   –
+del  !   @   #   $   %   ^   &amp;   *   (   )   £
+     ~   `   +   =   |   \   [   ]   {   }
+                sym
+</code></pre>
+
+<p>And depressing <code>mov</code> takes us to a layer with movement keys (arrow cluster, home, end, page up/down, window management hotkeys).</p>
+
+<p>I&rsquo;m a full time software developer, so I type a lot of symbols, and whenever I have to use a conventional keyboard I&rsquo;m frustrated by how much longer it takes to reach them. With thumb modifiers typing symbols and number is <em>easier</em> than typing upper case letters with shift. It would be a bold claim indeed to assert the same about the situation on a full sized keyboard.</p>
+
+<p>The final trump card of the Planck is its programability. If you&rsquo;re sold on the physical layout, then the wonderful <a href="https://github.com/qmk/qmk_firmware">QMK firmware</a> can be endlessly customised. Here&rsquo;s <a href="https://github.com/qmk/qmk_firmware/blob/master/keyboards/planck/keymaps/callum/keymap.c">my keymap</a> for reference, but QMK supports a whole host of advanced features that I&rsquo;ve never touched.</p>
+
+<p>This is a distillation of explanations that I usually end up giving to colleagues and friends after they inevitably ask, &ldquo;What is that thing on your desk?&rdquo;, and when I read the knee jerk reaction online that keyboards like the Planck are cute and interesting, but that you couldn&rsquo;t possibly get any real work done with them. I don&rsquo;t think this board is for everyone, but I hope if nothing else I&rsquo;ve convinced you that time spent thinking about your keyboard can be just as valuable as time spent tinkering with your vim config.</p>
+
+    </div>
+  </body>
+  <footer>
+    <p>Written on the 1st of June 2019.</p>
+  </footer>
+</html>
