@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"io"
 	"io/ioutil"
 	"log"
 	"os"
@@ -13,51 +14,70 @@ import (
 	"gopkg.in/russross/blackfriday.v2"
 )
 
+func newTemplate(s string) *template.Template {
+	return template.Must(template.ParseFiles(filepath.Join("templates", s+".html")))
+}
+
 var (
-	headerT = template.Must(template.ParseFiles(filepath.Join("templates", "header.html")))
-	footerT = template.Must(template.ParseFiles(filepath.Join("templates", "footer.html")))
-	postT   = template.Must(template.ParseFiles(filepath.Join("templates", "post.html")))
-	indexT  = template.Must(template.ParseFiles(filepath.Join("templates", "index.html")))
+	headerT = newTemplate("header")
+	footerT = newTemplate("footer")
+	postT   = newTemplate("post")
+	indexT  = newTemplate("index")
 )
 
-type index struct {
-	Title  string
-	About  string
-	Posts  []post
+func processMarkdown(r io.Reader) (string, error) {
+	b, err := ioutil.ReadAll(r)
+	if err != nil {
+		return "", err
+	}
+	return string(blackfriday.Run(b)), nil
+}
+
+type global struct {
 	Footer string
 }
 
-func newIndex(about *bufio.Reader, footer string) (index, error) {
-	i := index{Title: "Index", Footer: footer}
-
-	b, err := ioutil.ReadAll(about)
+func newGlobal(r io.Reader) (global, error) {
+	footer, err := processMarkdown(r)
 	if err != nil {
-		return i, err
+		return global{}, err
 	}
-	i.About = string(blackfriday.Run(b))
+	return global{Footer: footer}, nil
+}
 
-	return i, nil
+type index struct {
+	Title string
+	About string
+	Posts []post
+	global
+}
+
+func newIndex(r io.Reader, g global) (index, error) {
+	about, err := processMarkdown(r)
+	if err != nil {
+		return index{}, err
+	}
+	return index{Title: "Index", About: about, global: g}, nil
 }
 
 type post struct {
 	Title   string `toml:"title"`
 	Date    string `toml:"date"`
 	Content string
-	Footer  string
+	global
 }
 
-func newPost(r *bufio.Reader, footer string) (post, error) {
-	p := post{Footer: footer}
+func processFrontMatter(r *bufio.Reader, dest interface{}) error {
 	var frontMatter string
 
 	_, err := r.ReadString('\n') // discard first "+++"
 	if err != nil {
-		return p, err
+		return err
 	}
 	for {
 		line, err := r.ReadString('\n')
 		if err != nil {
-			return p, err
+			return err
 		}
 		if line == "+++\n" {
 			break
@@ -65,15 +85,24 @@ func newPost(r *bufio.Reader, footer string) (post, error) {
 		frontMatter += line
 	}
 
-	if err := toml.Unmarshal([]byte(frontMatter), &p); err != nil {
+	if err := toml.Unmarshal([]byte(frontMatter), dest); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func newPost(r *bufio.Reader, g global) (post, error) {
+	p := post{global: g}
+	if err := processFrontMatter(r, &p); err != nil {
 		return p, err
 	}
 
-	b, err := ioutil.ReadAll(r)
+	content, err := processMarkdown(r)
 	if err != nil {
 		return p, err
 	}
-	p.Content = string(blackfriday.Run(b))
+	p.Content = content
 
 	return p, nil
 }
@@ -82,20 +111,34 @@ func copyToBuild(path string) error {
 	return os.Link(path, filepath.Join("build", path))
 }
 
+func writePage(path string, data interface{}, templates ...*template.Template) error {
+	out, err := os.Create(path)
+	if err != nil {
+		return err
+	}
+
+	for _, template := range templates {
+		if err := template.Execute(out, data); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func main() {
 	if err := os.RemoveAll("build"); err != nil {
 		log.Fatal(err)
 	}
-
 	if err := os.MkdirAll(filepath.Join("build", "posts"), os.ModePerm); err != nil {
 		log.Fatal(err)
 	}
 
-	if err := copyToBuild("style.css"); err != nil {
+	footer, err := os.Open("footer.md")
+	if err != nil {
 		log.Fatal(err)
 	}
-
-	files, err := ioutil.ReadDir("posts")
+	g, err := newGlobal(footer)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -104,19 +147,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
-	f, err := os.Open("footer.md")
+	i, err := newIndex(about, g)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	b, err := ioutil.ReadAll(f)
-	if err != nil {
-		log.Fatal(err)
-	}
-	footer := string(blackfriday.Run(b))
-
-	i, err := newIndex(bufio.NewReader(about), footer)
+	files, err := ioutil.ReadDir("posts")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -124,30 +160,18 @@ func main() {
 	for _, file := range files {
 		path := filepath.Join("posts", file.Name())
 		if filepath.Ext(file.Name()) == ".md" {
-			in, err := os.Open(path)
+			content, err := os.Open(path)
 			if err != nil {
 				log.Fatal(err)
 			}
 
-			p, err := newPost(bufio.NewReader(in), footer)
+			p, err := newPost(bufio.NewReader(content), g)
 			if err != nil {
 				log.Fatal(err)
 			}
 
-			out, err := os.Create(
-				filepath.Join("build", "posts", strings.TrimSuffix(file.Name(), ".md")+".html"),
-			)
-			if err != nil {
-				log.Fatal(err)
-			}
-
-			if err := headerT.Execute(out, p); err != nil {
-				log.Fatal(err)
-			}
-			if err := postT.Execute(out, p); err != nil {
-				log.Fatal(err)
-			}
-			if err := footerT.Execute(out, p); err != nil {
+			outPath := filepath.Join("build", strings.TrimSuffix(path, ".md")+".html")
+			if err := writePage(outPath, p, headerT, postT, footerT); err != nil {
 				log.Fatal(err)
 			}
 
@@ -159,20 +183,12 @@ func main() {
 		}
 	}
 
-	out, err := os.Create(filepath.Join("build", "index.html"))
-	if err != nil {
+	path := filepath.Join("build", "index.html")
+	if err := writePage(path, i, headerT, indexT, footerT); err != nil {
 		log.Fatal(err)
 	}
 
-	if err := headerT.Execute(out, i); err != nil {
-		log.Fatal(err)
-	}
-	if err := indexT.Execute(out, i); err != nil {
-		log.Fatal(err)
-	}
-	if err := footerT.Execute(out, i); err != nil {
+	if err := copyToBuild("style.css"); err != nil {
 		log.Fatal(err)
 	}
 }
-
-// TODO lots of repetition to factor out
