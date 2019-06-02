@@ -1,11 +1,25 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i|IBM+Plex+Sans:600|IBM+Plex+Mono&display=swap");
 
 html {
-  font-family: "Merriweather", sans-serif;
   font-size: 16pt;
+}
+
+@media (max-width: 700px) {
+  html {
+    font-size: 14pt;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 12pt;
+  }
+}
+body {
+  font-family: "Merriweather", sans-serif;
   line-height: 1.4;
   margin: auto;
-  max-width: 45rem;
+  max-width: 33rem;
   padding: 0 0 5rem 0;
 }
 
@@ -86,16 +100,4 @@ li {
 
 .title {
   font-size: 1.5rem;
-}
-
-@media (max-width: 700px) {
-  html {
-    font-size: 14pt;
-  }
-}
-
-@media (max-width: 500px) {
-  html {
-    font-size: 12pt;
-  }
 }
