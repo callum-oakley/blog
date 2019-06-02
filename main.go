@@ -64,6 +64,7 @@ type post struct {
 	Title   string `toml:"title"`
 	Date    string `toml:"date"`
 	Content string
+	Path    string
 	global
 }
 
@@ -92,8 +93,8 @@ func processFrontMatter(r *bufio.Reader, dest interface{}) error {
 	return nil
 }
 
-func newPost(r *bufio.Reader, g global) (post, error) {
-	p := post{global: g}
+func newPost(r *bufio.Reader, g global, path string) (post, error) {
+	p := post{Path: path, global: g}
 	if err := processFrontMatter(r, &p); err != nil {
 		return p, err
 	}
@@ -165,7 +166,7 @@ func main() {
 				log.Fatal(err)
 			}
 
-			p, err := newPost(bufio.NewReader(content), g)
+			p, err := newPost(bufio.NewReader(content), g, strings.TrimSuffix(path, ".md"))
 			if err != nil {
 				log.Fatal(err)
 			}

@@ -1,4 +1,4 @@
 #! /bin/bash
 
-(cd build; live-server --port=8000)&
+http-server build &
 fd -E build | entr ./script/build
