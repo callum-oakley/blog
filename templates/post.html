@@ -1,23 +1,2 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ .Title }}</title>
-    <link rel="stylesheet" type="text/css" href="../style.css">
-  </head>
-  <body>
-    <header>
-      <p>Callum Oakley</p>
-    </header>
-    <h1>
-      {{ .Title }}
-    </h1>
-    <div>
-      {{ .Content }}
-    </div>
-  </body>
-  <footer>
-    <p>Written on the {{ .Date }}.</p>
-  </footer>
-</html>
+<div>{{ .Content }}</div>
+<p class="date">Written on the {{ .Date }}.</p>

@@ -1,0 +1,11 @@
+{{ .About }}
+<h2>Posts</h2>
+<ul class="posts">
+{{ range .Posts }}
+<li>
+<span class="date">{{ .Date }}</span>
+</br>
+<a class="title" href="posts/48-keys-are-plenty.html">{{ .Title }}</a>
+</li>
+{{ end }}
+</ul>

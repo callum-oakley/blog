@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i|IBM+Plex+Sans:600|IBM+Plex+Mono&display=swap");
 
 html {
-  font-family: "Merriweather", serif;
+  font-family: "Merriweather", sans-serif;
   font-size: 16pt;
   line-height: 1.4;
   margin: auto;
@@ -9,10 +9,19 @@ html {
   padding: 0 0 5rem 0;
 }
 
-h1 {
+h1,
+h2,
+.title {
   font-family: "IBM Plex Sans", sans-serif;
-  font-size: 2.5rem;
   font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
 }
 
 img {
@@ -42,15 +51,40 @@ a {
   color: Black;
 }
 
-header {
+header,
+header a {
   color: DimGray;
+}
+
+header {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
+  font-variant: small-caps;
+}
+
+footer,
+footer a {
+  color: DimGray;
 }
 
 footer {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 1rem 0;
+}
+
+.date {
   font-style: italic;
+}
+
+.title {
+  font-size: 1.5rem;
 }
 
 @media (max-width: 700px) {
