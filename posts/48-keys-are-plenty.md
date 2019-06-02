@@ -1,6 +1,6 @@
 +++
 title = "48 keys are plenty"
-date = "1st of June 2019"
+date = "2nd of June 2019"
 +++
 
 I use my computer a lot, and I mostly interact with it through text, so taking some time to think about my keyboard is certainly time well spent. For about three years now, I've been a devoted user of the [Planck][]: a programmable grid of 48 single unit keys.
