@@ -1,6 +1,8 @@
 +++
 title = "48 keys are plenty"
 date = "2nd of June 2019"
+hacker_news = "https://news.ycombinator.com/item?id=20074769"
+reddit = "https://www.reddit.com/r/MechanicalKeyboards/comments/bvwcrz/48_keys_are_plenty_a_review_of_the_planck_after_3/"
 +++
 
 I use my computer a lot, and I mostly interact with it through text, so taking some time to think about my keyboard is certainly time well spent. For about three years now, I've been a devoted user of the [Planck][]: a programmable grid of 48 single unit keys.

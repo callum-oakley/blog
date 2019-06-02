@@ -61,10 +61,12 @@ func newIndex(r io.Reader, g global) (index, error) {
 }
 
 type post struct {
-	Title   string `toml:"title"`
-	Date    string `toml:"date"`
-	Content string
-	Path    string
+	Title      string `toml:"title"`
+	Date       string `toml:"date"`
+	HackerNews string `toml:"hacker_news"`
+	Reddit     string `toml:"reddit"`
+	Content    string
+	Path       string
 	global
 }
 

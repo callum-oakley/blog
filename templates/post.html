@@ -1,2 +1,7 @@
 <div>{{ .Content }}</div>
 <p class="date">Written on the {{ .Date }}.</p>
+{{ if or .HackerNews .Reddit }}
+<p class="comments">
+Comments on{{ if .HackerNews }} <a href="{{ .HackerNews }}">Hacker News</a>{{ end }}{{ if and .HackerNews .Reddit }} or{{ end }}{{ if .Reddit }} <a href="{{ .Reddit }}">Reddit</a>{{ end }}.
+</p>
+{{ end }}
