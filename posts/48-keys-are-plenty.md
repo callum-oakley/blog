@@ -50,7 +50,7 @@ Depressing `sym` takes us to a layer of symbols and numbers:
 
 And depressing `mov` takes us to a layer with movement keys (arrow cluster, home, end, page up/down, window management hotkeys).
 
-I'm a full time software developer, so I type a lot of symbols, and whenever I have to use a conventional keyboard I'm frustrated by how much longer it takes to reach them. With thumb modifiers typing symbols and number is *easier than typing upper case letters with shift*. It would be a bold claim indeed to assert the same about the situation on a full sized keyboard.
+I'm a full time software developer, so I type a lot of symbols, and whenever I have to use a conventional keyboard I'm frustrated by how much longer it takes to reach them. With thumb modifiers typing symbols and numbers is *easier than typing upper case letters with shift*. It would be a bold claim indeed to assert the same about the situation on a full sized keyboard.
 
 The final trump card of the Planck is its programability. If you're sold on the physical layout, then the wonderful [QMK firmware][] can be endlessly customised. Here's [my keymap][] for reference, but QMK supports a whole host of advanced features that I've never touched.
 
