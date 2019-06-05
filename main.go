@@ -23,18 +23,6 @@ type page struct {
 	Metadata map[string]interface{}
 }
 
-func copyToBuild(path string, file os.FileInfo) error {
-	contentPath := filepath.Join("content", path)
-	buildPath := filepath.Join("build", path)
-
-	if file.IsDir() {
-		return os.Mkdir(buildPath, os.ModePerm)
-	} else {
-		fmt.Printf("%v -> %v\n", contentPath, buildPath)
-		return os.Link(contentPath, buildPath)
-	}
-}
-
 func readSnippet(path string) (string, error) {
 	b, err := ioutil.ReadFile(filepath.Join("content", path))
 	if err != nil {
@@ -68,8 +56,6 @@ func readPage(path string, t *template.Template) (page, error) {
 		return page{}, err
 	}
 
-	content := string(blackfriday.Run(bs[2]))
-
 	ti, ok := metadata["template"]
 	if !ok {
 		return page{}, errors.New("metadata must include template field")
@@ -87,24 +73,9 @@ func readPage(path string, t *template.Template) (page, error) {
 	return page{
 		Template: pageTemplate,
 		Path:     strings.TrimSuffix(path, ".md"),
-		Content:  content,
+		Content:  string(blackfriday.Run(bs[2])),
 		Metadata: metadata,
 	}, nil
-}
-
-func writePage(path string, p page) error {
-	contentPath := filepath.Join("content", path)
-	buildPath := filepath.Join("build", strings.TrimSuffix(path, ".md")+".html")
-	fmt.Printf("%v -> %v\n", contentPath, buildPath)
-
-	out, err := os.Create(buildPath)
-	if err != nil {
-		return err
-	}
-	if err := p.Template.Execute(out, p); err != nil {
-		return err
-	}
-	return nil
 }
 
 func readTemplates(pages map[string]page, snippets map[string]string) (*template.Template, error) {
@@ -131,8 +102,7 @@ func readTemplates(pages map[string]page, snippets map[string]string) (*template
 		}
 
 		if !file.IsDir() {
-			t, err = t.ParseFiles(path)
-			if err != nil {
+			if _, err := t.ParseFiles(path); err != nil {
 				return err
 			}
 		}
@@ -143,6 +113,33 @@ func readTemplates(pages map[string]page, snippets map[string]string) (*template
 	}
 
 	return t, nil
+}
+
+func copyToBuild(path string, file os.FileInfo) error {
+	contentPath := filepath.Join("content", path)
+	buildPath := filepath.Join("build", path)
+
+	if file.IsDir() {
+		return os.Mkdir(buildPath, os.ModePerm)
+	} else {
+		fmt.Printf("%v -> %v\n", contentPath, buildPath)
+		return os.Link(contentPath, buildPath)
+	}
+}
+
+func writePage(path string, p page) error {
+	contentPath := filepath.Join("content", path)
+	buildPath := filepath.Join("build", strings.TrimSuffix(path, ".md")+".html")
+	fmt.Printf("%v -> %v\n", contentPath, buildPath)
+
+	out, err := os.Create(buildPath)
+	if err != nil {
+		return err
+	}
+	if err := p.Template.Execute(out, p); err != nil {
+		return err
+	}
+	return nil
 }
 
 func main() {
