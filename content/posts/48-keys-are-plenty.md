@@ -1,13 +1,14 @@
-+++
+```
+template = "post.html"
 title = "48 keys are plenty"
 date = "2nd of June 2019"
 hacker_news = "https://news.ycombinator.com/item?id=20074769"
 reddit = "https://www.reddit.com/r/MechanicalKeyboards/comments/bvwcrz/48_keys_are_plenty_a_review_of_the_planck_after_3/"
-+++
+```
 
 I use my computer a lot, and I mostly interact with it through text, so taking some time to think about my keyboard is certainly time well spent. For about three years now, I've been a devoted user of the [Planck][]: a programmable grid of 48 single unit keys.
 
-![planck](planck.jpg)
+![planck](/images/planck.jpg)
 
 Apart from occasionally using the internal keyboard on my laptop I haven't used another keyboard since making the switch, and am fully convinced that the Planck is an improvement on a conventional board in every way. Bear with me.
 

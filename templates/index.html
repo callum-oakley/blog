@@ -1,11 +1,14 @@
-{{ .About }}
+{{ template "header.html" . }}
+{{ .Content }}
 <h2>Posts</h2>
 <ul class="posts">
-{{ range .Posts }}
+{{ range .Metadata.posts }}
+{{ $p := page . }}
 <li>
-<span class="date">{{ .Date }}</span>
+<span class="date">{{ $p.Metadata.date }}</span>
 </br>
-<a class="title" href="{{ .Path }}">{{ .Title }}</a>
+<a class="title" href="{{ $p.Path }}">{{ $p.Metadata.title }}</a>
 </li>
 {{ end }}
 </ul>
+{{ template "footer.html" . }}

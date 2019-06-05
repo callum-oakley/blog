@@ -1,197 +1,200 @@
 package main
 
 import (
-	"bufio"
-	"io"
+	"bytes"
+	"errors"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
 	"text/template"
+	"time"
 
 	"github.com/BurntSushi/toml"
 	"gopkg.in/russross/blackfriday.v2"
 )
 
-func newTemplate(s string) *template.Template {
-	return template.Must(template.ParseFiles(filepath.Join("templates", s+".html")))
+type page struct {
+	Template *template.Template
+	Path     string
+	Content  string
+	Metadata map[string]interface{}
 }
 
-var (
-	headerT = newTemplate("header")
-	footerT = newTemplate("footer")
-	postT   = newTemplate("post")
-	indexT  = newTemplate("index")
-)
+func copyToBuild(path string, file os.FileInfo) error {
+	contentPath := filepath.Join("content", path)
+	buildPath := filepath.Join("build", path)
 
-func processMarkdown(r io.Reader) (string, error) {
-	b, err := ioutil.ReadAll(r)
+	if file.IsDir() {
+		return os.Mkdir(buildPath, os.ModePerm)
+	} else {
+		fmt.Printf("%v -> %v\n", contentPath, buildPath)
+		return os.Link(contentPath, buildPath)
+	}
+}
+
+func readSnippet(path string) (string, error) {
+	b, err := ioutil.ReadFile(filepath.Join("content", path))
 	if err != nil {
 		return "", err
 	}
 	return string(blackfriday.Run(b)), nil
 }
 
-type global struct {
-	Footer string
-}
-
-func newGlobal(r io.Reader) (global, error) {
-	footer, err := processMarkdown(r)
-	if err != nil {
-		return global{}, err
+func readMetadata(b []byte) (map[string]interface{}, error) {
+	var metadata map[string]interface{}
+	if err := toml.Unmarshal(b, &metadata); err != nil {
+		return nil, err
 	}
-	return global{Footer: footer}, nil
+
+	return metadata, nil
 }
 
-type index struct {
-	Title string
-	About string
-	Posts []post
-	global
-}
-
-func newIndex(r io.Reader, g global) (index, error) {
-	about, err := processMarkdown(r)
+func readPage(path string, t *template.Template) (page, error) {
+	b, err := ioutil.ReadFile(filepath.Join("content", path))
 	if err != nil {
-		return index{}, err
+		return page{}, err
 	}
-	return index{Title: "Index", About: about, global: g}, nil
+
+	bs := bytes.SplitN(b, []byte("```\n"), 3)
+	if len(bs) != 3 || len(bs[0]) != 0 {
+		return page{}, errors.New("page must begin with ``` delimited metadata")
+	}
+
+	metadata, err := readMetadata(bs[1])
+	if err != nil {
+		return page{}, err
+	}
+
+	content := string(blackfriday.Run(bs[2]))
+
+	ti, ok := metadata["template"]
+	if !ok {
+		return page{}, errors.New("metadata must include template field")
+	}
+	ts, ok := ti.(string)
+	if !ok {
+		return page{}, errors.New("template field must be a string")
+	}
+
+	pageTemplate := t.Lookup(ts)
+	if pageTemplate == nil {
+		return page{}, fmt.Errorf("couldn't find template %#v", ts)
+	}
+
+	return page{
+		Template: pageTemplate,
+		Path:     strings.TrimSuffix(path, ".md"),
+		Content:  content,
+		Metadata: metadata,
+	}, nil
 }
 
-type post struct {
-	Title      string `toml:"title"`
-	Date       string `toml:"date"`
-	HackerNews string `toml:"hacker_news"`
-	Reddit     string `toml:"reddit"`
-	Content    string
-	Path       string
-	global
-}
+func writePage(path string, p page) error {
+	contentPath := filepath.Join("content", path)
+	buildPath := filepath.Join("build", strings.TrimSuffix(path, ".md")+".html")
+	fmt.Printf("%v -> %v\n", contentPath, buildPath)
 
-func processFrontMatter(r *bufio.Reader, dest interface{}) error {
-	var frontMatter string
-
-	_, err := r.ReadString('\n') // discard first "+++"
+	out, err := os.Create(buildPath)
 	if err != nil {
 		return err
 	}
-	for {
-		line, err := r.ReadString('\n')
+	if err := p.Template.Execute(out, p); err != nil {
+		return err
+	}
+	return nil
+}
+
+func readTemplates(pages map[string]page, snippets map[string]string) (*template.Template, error) {
+	t := template.New("").Funcs(template.FuncMap{
+		"page": func(path string) (page, error) {
+			p, ok := pages[path]
+			if !ok {
+				return page{}, fmt.Errorf("couldn't find page %#v", path)
+			}
+			return p, nil
+		},
+		"snippet": func(path string) (string, error) {
+			s, ok := snippets[path]
+			if !ok {
+				return "", fmt.Errorf("couldn't find snippet %#v", path)
+			}
+			return s, nil
+		},
+	})
+
+	if err := filepath.Walk("templates", func(path string, file os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
-		if line == "+++\n" {
-			break
+
+		if !file.IsDir() {
+			t, err = t.ParseFiles(path)
+			if err != nil {
+				return err
+			}
 		}
-		frontMatter += line
+
+		return nil
+	}); err != nil {
+		return nil, err
 	}
 
-	if err := toml.Unmarshal([]byte(frontMatter), dest); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func newPost(r *bufio.Reader, g global, path string) (post, error) {
-	p := post{Path: path, global: g}
-	if err := processFrontMatter(r, &p); err != nil {
-		return p, err
-	}
-
-	content, err := processMarkdown(r)
-	if err != nil {
-		return p, err
-	}
-	p.Content = content
-
-	return p, nil
-}
-
-func copyToBuild(path string) error {
-	return os.Link(path, filepath.Join("build", path))
-}
-
-func writePage(path string, data interface{}, templates ...*template.Template) error {
-	out, err := os.Create(path)
-	if err != nil {
-		return err
-	}
-
-	for _, template := range templates {
-		if err := template.Execute(out, data); err != nil {
-			return err
-		}
-	}
-
-	return nil
+	return t, nil
 }
 
 func main() {
+	start := time.Now()
+
 	if err := os.RemoveAll("build"); err != nil {
 		log.Fatal(err)
 	}
-	if err := os.MkdirAll(filepath.Join("build", "posts"), os.ModePerm); err != nil {
-		log.Fatal(err)
-	}
 
-	footer, err := os.Open("footer.md")
-	if err != nil {
-		log.Fatal(err)
-	}
-	g, err := newGlobal(footer)
+	snippets := map[string]string{}
+	pages := map[string]page{}
+	t, err := readTemplates(pages, snippets)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	about, err := os.Open("about.md")
-	if err != nil {
-		log.Fatal(err)
-	}
-	i, err := newIndex(about, g)
-	if err != nil {
-		log.Fatal(err)
-	}
+	if err := filepath.Walk("content", func(path string, file os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		path = strings.TrimPrefix(path, "content")
 
-	files, err := ioutil.ReadDir("posts")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	for _, file := range files {
-		path := filepath.Join("posts", file.Name())
 		if filepath.Ext(file.Name()) == ".md" {
-			content, err := os.Open(path)
-			if err != nil {
-				log.Fatal(err)
+			if file.Name()[0] == '_' {
+				snippet, err := readSnippet(path)
+				if err != nil {
+					return err
+				}
+				snippets[path] = snippet
+			} else {
+				p, err := readPage(path, t)
+				if err != nil {
+					return err
+				}
+				pages[path] = p
 			}
-
-			p, err := newPost(bufio.NewReader(content), g, strings.TrimSuffix(path, ".md"))
-			if err != nil {
-				log.Fatal(err)
-			}
-
-			outPath := filepath.Join("build", strings.TrimSuffix(path, ".md")+".html")
-			if err := writePage(outPath, p, headerT, postT, footerT); err != nil {
-				log.Fatal(err)
-			}
-
-			i.Posts = append(i.Posts, p)
 		} else {
-			if err := copyToBuild(path); err != nil {
-				log.Fatal(err)
+			if err := copyToBuild(path, file); err != nil {
+				return err
 			}
+		}
+
+		return nil
+	}); err != nil {
+		log.Fatal(err)
+	}
+
+	for path, p := range pages {
+		if err := writePage(path, p); err != nil {
+			log.Fatal(err)
 		}
 	}
 
-	path := filepath.Join("build", "index.html")
-	if err := writePage(path, i, headerT, indexT, footerT); err != nil {
-		log.Fatal(err)
-	}
-
-	if err := copyToBuild("style.css"); err != nil {
-		log.Fatal(err)
-	}
+	fmt.Printf("Done in %vms.\n", int(time.Since(start)/time.Millisecond))
 }
