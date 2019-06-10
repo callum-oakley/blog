@@ -49,11 +49,11 @@ blockquote {
 
 code {
   font-family: "IBM Plex Mono", monospace;
-  background-color: WhiteSmoke;
+  background-color: whitesmoke;
 }
 
 pre {
-  background-color: WhiteSmoke;
+  background-color: whitesmoke;
   overflow: scroll;
   padding: 1rem;
 }
@@ -68,19 +68,20 @@ a {
 
 header,
 header a {
-  color: DimGray;
+  color: dimgray;
 }
 
 header {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 1.5rem;
-  font-weight: 600;
   font-variant: small-caps;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
 footer,
 footer a {
-  color: DimGray;
+  color: dimgray;
 }
 
 footer {
