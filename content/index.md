@@ -12,4 +12,4 @@ Currently living in London writing software at [Pusher][]. Have a gander at [my 
 
 [Pusher]: https://pusher.com/
 [my GitHub]: https://github.com/callum-oakley
-[an email]: mailto:c.oakley108@gmail.com
+[an email]: mailto:hello@callumoakley.net
