@@ -2,7 +2,6 @@
 template = "index.html"
 title = "Index"
 posts = [
-  "/posts/colemak.md",
   "/posts/48-keys-are-plenty.md",
 ]
 ```
