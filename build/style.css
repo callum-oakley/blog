@@ -90,8 +90,11 @@ footer {
   padding: 2rem 0;
 }
 
-li {
+.posts {
   list-style-type: none;
+}
+
+.posts li {
   padding: 1rem 0;
 }
 

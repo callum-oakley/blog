@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What is a Colemak & why might you want one?</title>
+<link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+<header>
+<a href="/">callum oakley</a>
+</header>
+<h1>What is a Colemak & why might you want one?</h1>
+
+<div><p>In <a href="48-keys-are-plenty">my last post</a> I mentioned that I don&rsquo;t use the ubiquitous QWERTY keyboard layout, but instead an alternative layout called Colemak. The top voted comment was a request for a similarly toned article about Colemak, so here&rsquo;s a brief introduction to what Colemak is, and what my experience with it has been like.</p>
+
+<p>First, some very brief history. QWERTY became standard on typewriters in the late 19th century. People claim variously that the letter positions were chosen to avoid the levers jamming when keys close together were pressed in quick succession; to allow the word <em>typewriter</em> to be keyed in using the top row alone; or even to slow down fast typists to keep them from hitting the physical limits of the machine. Regardless, QWERTY doesn&rsquo;t seem to have been subject to much in the way of ergonomic considerations, and a number of alternatives have sprung up since to address this deficiency. Dvorak and Colemak are the two most common alternative layouts, but before we get to specifics let&rsquo;s take a step back.</p>
+
+<p>If we were designing a keyboard layout today – without the historical baggage of the typewriter – what might we want to optimise for? The easiest metric to reason about is finger travel. When we want to hit a key: how far do we have to stretch to get to it? Not every key is equally easy or comfortable to reach. We could come up with a scoring system for keys based on how much effort it is to hit them. Something like:</p>
+
+<pre><code>8 7 6 5 9 9 5 6 7 8
+3 2 1 0 4 4 0 1 2 3
+8 7 6 5 9 9 5 6 7 8
+</code></pre>
+
+<p>where lower numbers indicate lower effort. Then we could arrange the most commonly used letters on the keys with the lowest scores. You could disagree on the scoring based on how difficult you think it is to hit the keys in the middle column, whether you find it easier to hit the top row than the bottom, if you have iron pinkies&hellip; but this simple model already captures a lot of the spirit of what we&rsquo;re trying to achieve. For an example of how this kind of optimisation can play out, here&rsquo;s a version of Genesis written using <em>only</em> the home row keys of the Colemak layout:</p>
+
+<blockquote>
+<p>In the start The One has risen the stars and the earth.<br />
+The earth had no order, and nothin&rsquo; resided there; and shade resided on the nonendin&rsquo; &lsquo;neath. And The One rided on the seas.<br />
+Then The One said: &ldquo;I desire it to shine&rdquo;; and it shone.<br />
+And The One had seen the shine, that it&rsquo;s neat; and The One sorted the shine on one side, and the shade on the other.<br />
+The One then denoted the shine and the shade. So the nite and the shine that are date no. one had ended.</p>
+</blockquote>
+
+<p>The distance from the home row is not the whole story. We also need to consider the transitions from one key to another. Certain sequences of letters occur more frequently than others, and certain transitions are more awkward than others. Dvorak&rsquo;s approach to this problem was to optimise for <em>hand alternation</em>: hitting keys with the left hand and the right hand alternately – mostly by placing vowels on one half of the keyboard and the most commonly used consonants on the other. Colemak instead optimises for <em>same-hand rolls</em>: a fluid motion pressing multiple keys in turn with a single movement of the hand. From here on I&rsquo;m going to talk about my experiences with Colemak, but I expect that a lot of this would apply just as readily to any optimised layout.</p>
+
+<p>The summer of my first year of university I discovered the bottomless money pit that is the world of Mechanical Keyboards. After investing a small portion of my student loan in the <a href="https://www.cherry.co.uk/cherry-g80-3000.html">very clicky and very plasticy Cherry G80-3000</a> I decided I should probably learn to touch type properly. Many <a href="https://www.gnu.org/savannah-checkouts/gnu/gtypist/gtypist.html">GNU Typist</a> lessons and online typing tests later I was happily tapping away with impeccable 10 finger touch typing technique at 70 odd words per minute. I was content with QWERTY, and it <em>felt</em> fine (I didn&rsquo;t know any better!) but I did notice that occasionally the stars would align and a certain word would feel especially nice to type. Wouldn&rsquo;t it be nice if the stars aligned more often?</p>
+
+<p>Jump to the summer of my third year, and enter Colemak. I don&rsquo;t remember where I first read about it and how I decided that it might be worth trying, but I do remember choosing it over the alternative alternatives because:</p>
+
+<ol>
+<li>it optimises for same-hand rolls (which was what I had identified as the source of the &ldquo;stars aligning&rdquo; feeling)</li>
+<li>it shares many keys with QWERTY, including common shortcut keys</li>
+<li>it <a href="http://mkweb.bcgsc.ca/carpalx/?colemak">performs marginally better than Dvorak</a> on metrics which made sense to me</li>
+<li>it has out of the box support in macOS and Linux (Dvorak does too, but many more obscure layouts don&rsquo;t)</li>
+</ol>
+
+<p>Being a student, and it being the summer holidays, I had the opportunity to switch cold turkey. Back to GNU Typist I went.</p>
+
+<p>During the first few days, every letter I typed involved consciously stopping my muscle memory from taking over, actively remembering where the key is, and only then hitting it. Frustrating is an understatement. Gradually though I got faster and faster at consciously finding the keys I wanted, and then started to let my muscle memory take the reins again. From that point on the process of feeling my brain re-wire itself became really rewarding. Here&rsquo;s a graph I found of my progress over the first 45 days:</p>
+
+<p><img src="/images/colemak-progress.png" alt="Colemak progress" /></p>
+
+<p>The sharp decline in gradient at day 14 corresponds to starting a software engineering internship, which also served as very good motivation to get to a reasonable speed in the first two weeks. I&rsquo;ve long since stopped updating this graph, but still do the occasional typing test, and these days fairly commonly reach 100 WPM.</p>
+
+<p>More important than raw speed, is that Colemak is very <em>comfortable</em> to use. That stars-aligning feeling that I&rsquo;d noticed on QWERTY seems to happen for almost every word on Colemak. Make the raw process of typing more enjoyable and everything you do which involves typing becomes that bit more rewarding too.</p>
+
+<p>As far as convenience goes: I decided I would completely abandon QWERTY from the start, and I&rsquo;ve never been any the worse for it. Software support for Colemak is first class everywhere but Windows (but by the looks of it still pretty easy to set up there), and 99% of the time I use a <a href="48-keys-are-plenty">programmable keyboard</a> with my layout baked in to the firmware anyway.</p>
+
+<p>The short but hard up front investment is not going to be worth it for a lot of people, but if you type for a living or if curious enough to read my unstructured ramblings all the way to the end&hellip; then Colemak might be for you. Otherwise, at the very least, typing this post was a pleasure.</p>
+</div>
+<p class="date">Written on the 29th of June 2019.</p>
+
+<footer>
+<div>
+<p>Hacked together with a markdown processor and Go templates. Source <a href="https://github.com/callum-oakley/callum-oakley.github.io">here</a>.</p>
+
+</div>
+</footer>
+</body>
+</html>
+
