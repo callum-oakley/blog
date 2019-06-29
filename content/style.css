@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i|IBM+Plex+Sans:600|IBM+Plex+Mono&display=swap");
+@import "fonts/plex/css/ibm-plex.min.css";
 
 html {
   font-size: 21px;
@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  font-family: "Merriweather", sans-serif;
+  font-family: "IBM Plex Serif", serif;
   line-height: 1.4;
   margin: auto;
   max-width: 33rem;
