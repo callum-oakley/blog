@@ -3,7 +3,7 @@ template = "basic.html"
 title = "Typography"
 ```
 
-Despite working almost exclusively on backend software, I'm pretty enthusiastic about design, and especially about typography. This blog is as much an opportunity for me to play with fonts and typography as it is to do some writing. With that in mind I wanted to mention the fonts I was using -- for anyone else who's in to that:
+Despite working almost exclusively on backend software, I'm pretty enthusiastic about design, and especially about typography. This blog is as much an opportunity for me to play with fonts and typography as it is to do some writing. With that in mind I wanted to mention the fonts I was using -- for anyone else who's into that:
 
 - The text face is Bold Monday's [Quinn Text][], designed by Diana Ovezea.
 - Headings are set in Matthew Butterick's [Concourse][].
