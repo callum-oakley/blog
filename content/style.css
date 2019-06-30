@@ -54,6 +54,7 @@ html {
 body {
   font-family: "Quinn", sans-serif;
   font-kerning: normal;
+  hyphens: auto;
   line-height: 1.4;
   margin: auto;
   max-width: 33rem;
