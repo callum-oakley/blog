@@ -11,7 +11,7 @@ Despite working almost exclusively on backend software, I'm pretty enthusiastic 
 
 If you think this site looks nice, or if I've made some huge typographic faux pas, then please let me know! I'd love to get better. Also, if you share my enthusiasm for typography, I have two book recommendations, both of which I enjoyed immensely:
 
-- Matthew Butterick's [Practical Typography][] (I wish the whole internet looked like this)
+- Matthew Butterick's [Practical Typography][] (I wish the whole internet looked more like this)
 - Robert Bringhurst's *The Elements of Typographic Style* (probably the most beautiful book in the world)
 
 [Quinn Text]: https://boldmonday.com/typeface/quinn
