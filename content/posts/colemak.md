@@ -2,6 +2,8 @@
 template = "post.html"
 title = "The Colemak keyboard layout"
 date = "30th of June 2019"
+reddit = "https://www.reddit.com/r/MechanicalKeyboards/comments/c7c4ea/the_colemak_keyboard_layout_or_one_weird_trick_to/"
+hacker_news = "https://news.ycombinator.com/item?id=20317701"
 ```
 
 In [my last post][] I mentioned that I don't use the ubiquitous <span class="sc">qwerty</span> keyboard layout, but instead an alternative layout called Colemak. The top voted comment was a request for a similarly toned article about Colemak, so here's a brief introduction to what Colemak is, and what my experience with it has been like.
