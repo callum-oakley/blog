@@ -14,7 +14,7 @@ If we were designing a keyboard layout today -- without the historical baggage o
     3 2 1 0 4 4 0 1 2 3
     8 7 6 5 9 9 5 6 7 8
 
-where lower numbers indicate lower effort. Then we could arrange the most commonly used letters on the keys with the lowest scores. You could disagree on the scoring based on how difficult you think it is to hit the keys in the middle column, whether you find it easier to hit the top row than the bottom, if you have iron pinkies... but this simple model already captures a lot of the spirit of what we're trying to achieve. For an example of how this kind of optimisation can play out, here's a version of Genesis written using *only* the home row keys of the Colemak layout:
+where lower numbers indicate lower effort. Then we could arrange the most commonly used letters on the keys with the lowest scores. You could disagree on the scoring based on how difficult you think it is to hit the keys in the middle column, whether you find it easier to hit the top row than the bottom, if you have iron pinkies... but this simple model already captures a lot of the spirit of what we're trying to achieve. For an example of how this kind of optimisation can play out, here's a version of Genesis written using *only* the home row keys of the Colemak layout (from the [Colemak site][]):
 
 > In the start The One has risen the stars and the earth.\
 > The earth had no order, and nothin' resided there; and shade resided on the nonendin' 'neath. And The One rided on the seas.\
@@ -22,9 +22,9 @@ where lower numbers indicate lower effort. Then we could arrange the most common
 > And The One had seen the shine, that it's neat; and The One sorted the shine on one side, and the shade on the other.\
 > The One then denoted the shine and the shade. So the nite and the shine that are date no. one had ended.
 
-The distance from the home row is not the whole story. We also need to consider the transitions from one key to another. Certain sequences of letters occur more frequently than others, and certain transitions are more awkward than others. Dvorak's approach to this problem was to optimise for *hand alternation*: hitting keys with the left hand and the right hand alternately -- mostly by placing vowels on one half of the keyboard and the most commonly used consonants on the other. Colemak instead optimises for *same-hand rolls*: a fluid motion pressing multiple keys in turn with a single movement of the hand. From here on I'm going to talk about my experiences with Colemak, but I expect that a lot of this would apply just as readily to any optimised layout.
+The distance from the home row is not the whole story. We also need to consider the transitions from one key to another. Certain sequences of letters occur more frequently than others, and certain transitions are more awkward than others. Dvorak's approach to this problem is to optimise for *hand alternation*: hitting keys with the left hand and the right hand alternately -- mostly by placing vowels on one half of the keyboard and the most commonly used consonants on the other. Colemak instead optimises for *same-hand rolls*: a fluid motion pressing multiple keys in turn with a single movement of the hand. From here on I'm going to talk about my experiences with Colemak, but I expect that a lot of this would apply just as readily to any optimised layout.
 
-The summer of my first year of university I discovered the bottomless money pit that is the world of Mechanical Keyboards. After investing a small portion of my student loan in the very clicky and very plasticy [Cherry G80-3000][] I decided I should probably learn to touch type properly. Many [GNU Typist][] lessons and online typing tests later I was happily tapping away with impeccable 10 finger touch typing technique at 70 odd words per minute. I was content with <span class="sc">qwerty</span>, and it *felt* fine (I didn't know any better!) but I did notice that occasionally the stars would align and a certain word would feel especially nice to type. Wouldn't it be nice if the stars aligned more often?
+The summer of my first year of university I discovered the bottomless money pit that is the world of Mechanical Keyboards. After investing a small portion of my student loan in the very clicky and very plasticy [Cherry G80-3000][] I decided I should probably learn to touch type properly. Many [GNU Typist][] lessons and online typing tests later I was happily tapping away with impeccable 10 finger touch typing technique at 70 odd words per minute. I was content with <span class="sc">qwerty</span>, and it *felt* fine (I didn't know any better!) but I did notice that occasionally the stars would align and a certain word be especially pleasant to type. Wouldn't it be nice if the stars aligned more often?
 
 Jump to the summer of my third year, and enter Colemak. I don't remember where I first read about it and how I decided that it might be worth trying, but I do remember choosing it over the alternative alternatives because:
 
@@ -48,6 +48,7 @@ As far as convenience goes: I decided I would completely abandon <span class="sc
 The short but hard up front investment is not going to be worth it for a lot of people, but if you type for a living or are curious enough to read my unstructured ramblings all the way to the end... then Colemak might be for you. Otherwise, at the very least, typing this post was a pleasure.
 
 [my last post]: 48-keys-are-plenty
+[Colemak site]: https://colemak.com/Fun
 [Cherry G80-3000]: https://www.cherry.co.uk/cherry-g80-3000.html
 [GNU Typist]: https://www.gnu.org/savannah-checkouts/gnu/gtypist/gtypist.html
 [performs marginally better than Dvorak]: http://mkweb.bcgsc.ca/carpalx/?colemak
