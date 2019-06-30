@@ -48,6 +48,11 @@ img {
 
 blockquote {
   font-style: italic;
+  padding-left: 2rem;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 code {
@@ -91,6 +96,7 @@ ul,
 ol {
   counter-reset: a;
   list-style-type: none;
+  padding-left: 2rem;
 }
 
 li {
@@ -100,25 +106,25 @@ li {
 ul li::before {
   content: "•";
   position: absolute;
-  margin-left: -1.5rem;
+  margin-left: -2rem;
 }
 
 ol li::before {
   counter-increment: a;
   content: counter(a) ".";
   position: absolute;
-  margin-left: -1.5rem;
+  margin-left: -2rem;
 }
 
-.posts {
+.index ul {
   list-style-type: none;
 }
 
-.posts li {
+.index li {
   padding: 1rem 0;
 }
 
-.posts li::before {
+.index li::before {
   content: unset;
 }
 
@@ -129,6 +135,10 @@ ol li::before {
 
 .title {
   font-size: 1.5rem;
+}
+
+.basic {
+  padding: 3rem 0 0 0;
 }
 
 .sc {

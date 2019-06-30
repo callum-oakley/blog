@@ -1,4 +1,6 @@
 {{ template "header.html" . }}
+<div class="post">
+<h1>{{ .Metadata.title }}</h1>
 <div>{{ .Content }}</div>
 <p class="date">Written on the {{ .Metadata.date }}.</p>
 {{ if or .Metadata.hacker_news .Metadata.reddit }}
@@ -6,4 +8,5 @@
 Comments on{{ with .Metadata.hacker_news }} <a href="{{ . }}">Hacker News</a>{{ end }}{{ if and .Metadata.hacker_news .Metadata.reddit }} or{{ end }}{{ with .Metadata.reddit }} <a href="{{ . }}">Reddit</a>{{ end }}.
 </p>
 {{ end }}
+</div>
 {{ template "footer.html" . }}
