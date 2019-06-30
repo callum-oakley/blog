@@ -1,5 +1,39 @@
-@import "fonts/quinn/quinn.css";
 @import "fonts/plex/css/ibm-plex.min.css";
+
+@font-face {
+  font-family: "Quinn";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Quinn Text"), local("QuinnText"),
+    url("/fonts/QuinnText-Regular.woff2") format("woff2"),
+    url("/fonts/QuinnText-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Quinn";
+  font-style: italic;
+  font-weight: 400;
+  src: local("Quinn Text Italic"), local("QuinnText Italic"),
+    url("/fonts/QuinnText-Italic.woff2") format("woff2"),
+    url("/fonts/QuinnText-Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Concourse";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Concourse"),
+    url("/fonts/concourse_t4_regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: local("IBM Plex Mono"), local("IBMPlexMono"),
+    url("/fonts/IBMPlexMono-Regular.woff2") format("woff2"),
+    url("/fonts/IBMPlexMono-Regular.woff") format("woff");
+}
 
 html {
   font-size: 22px;
@@ -30,8 +64,9 @@ body {
 h1,
 h2,
 .title {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-weight: 600;
+  font-family: "Concourse", sans-serif;
+  font-feature-settings: "ss02";
+  font-weight: 400;
 }
 
 h1 {
@@ -77,13 +112,11 @@ a {
 }
 
 header {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Concourse", sans-serif;
+  font-feature-settings: "ss02";
+  font-weight: 400;
   font-size: 1.5rem;
-  font-weight: 600;
-}
-
-footer {
-  color: dimgray;
+  font-variant: small-caps;
 }
 
 footer {

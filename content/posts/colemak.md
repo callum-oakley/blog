@@ -1,7 +1,7 @@
 ```
 template = "post.html"
 title = "The Colemak keyboard layout"
-date = "29th of June 2019"
+date = "30th of June 2019"
 ```
 
 In [my last post][] I mentioned that I don't use the ubiquitous <span class="sc">qwerty</span> keyboard layout, but instead an alternative layout called Colemak. The top voted comment was a request for a similarly toned article about Colemak, so here's a brief introduction to what Colemak is, and what my experience with it has been like.
