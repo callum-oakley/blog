@@ -87,12 +87,39 @@ footer {
   padding: 2rem 0;
 }
 
+ul,
+ol {
+  counter-reset: a;
+  list-style-type: none;
+}
+
+li {
+  padding: 0.5rem 0;
+}
+
+ul li::before {
+  content: "•";
+  position: absolute;
+  margin-left: -1.5rem;
+}
+
+ol li::before {
+  counter-increment: a;
+  content: counter(a) ".";
+  position: absolute;
+  margin-left: -1.5rem;
+}
+
 .posts {
   list-style-type: none;
 }
 
 .posts li {
   padding: 1rem 0;
+}
+
+.posts li::before {
+  content: unset;
 }
 
 .date,

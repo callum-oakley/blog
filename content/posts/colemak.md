@@ -45,7 +45,7 @@ More important than raw speed, is that Colemak is very *comfortable* to use. Tha
 
 As far as convenience goes: I decided I would completely abandon <span class="sc">qwerty</span> from the start, and I've never been any the worse for it. Software support for Colemak is first class everywhere but Windows (but by the looks of it still pretty easy to set up there), and 99% of the time I use a [programmable keyboard][my last post] with my layout baked in to the firmware anyway.
 
-The short but hard up front investment is not going to be worth it for a lot of people, but if you type for a living or if curious enough to read my unstructured ramblings all the way to the end... then Colemak might be for you. Otherwise, at the very least, typing this post was a pleasure.
+The short but hard up front investment is not going to be worth it for a lot of people, but if you type for a living or are curious enough to read my unstructured ramblings all the way to the end... then Colemak might be for you. Otherwise, at the very least, typing this post was a pleasure.
 
 [my last post]: 48-keys-are-plenty
 [Cherry G80-3000]: https://www.cherry.co.uk/cherry-g80-3000.html

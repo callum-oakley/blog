@@ -13,8 +13,10 @@ import (
 	"time"
 
 	"github.com/BurntSushi/toml"
-	"gopkg.in/russross/blackfriday.v2"
+	"gitlab.com/golang-commonmark/markdown"
 )
+
+var md = markdown.New(markdown.HTML(true))
 
 type page struct {
 	Template *template.Template
@@ -28,7 +30,7 @@ func readSnippet(path string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	return string(blackfriday.Run(b)), nil
+	return md.RenderToString(b), nil
 }
 
 func readMetadata(b []byte) (map[string]interface{}, error) {
@@ -73,7 +75,7 @@ func readPage(path string, t *template.Template) (page, error) {
 	return page{
 		Template: pageTemplate,
 		Path:     strings.TrimSuffix(path, ".md"),
-		Content:  string(blackfriday.Run(bs[2])),
+		Content:  md.RenderToString(bs[2]),
 		Metadata: metadata,
 	}, nil
 }

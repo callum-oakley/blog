@@ -1,3 +1,4 @@
-Hacked together with a markdown processor and Go templates. Source [here][].
+[source code][] &#x2b51; [typography][]
 
-[here]: https://github.com/callum-oakley/blog
+[source code]: https://github.com/callum-oakley/blog
+[typography]: /typography
