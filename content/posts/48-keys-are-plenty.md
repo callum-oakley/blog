@@ -25,7 +25,7 @@ The next key observation is that the thumbs can do a lot more than we normally t
     . z x c v b n m . . . .
     . . . . . . _ . . . . .
 
-You'll also notice that the keys on the Planck are arranged in a grid. This makes every movement away from the home row completely regular – it's always the same distance, exactly up, down, left, or right. Conventional keyboards are staggered to imitate typewriters, where the stagger was a requirement to prevent the key levers from getting in the way of one another, but this comes at the cost of making certain keys harder to reach than others. Look how much harder it is to reach `b` than `n` – on a grid they are the same.
+You'll also notice that the keys on the Planck are arranged in a grid. This makes every movement away from the home row completely regular -- it's always the same distance, exactly up, down, left, or right. Conventional keyboards are staggered to imitate typewriters, where the stagger was a requirement to prevent the key levers from getting in the way of one another, but this comes at the cost of making certain keys harder to reach than others. Look how much harder it is to reach `b` than `n` -- on a grid they are the same.
 
 > But what about numbers and symbols?! You could never program with so few keys.
 
