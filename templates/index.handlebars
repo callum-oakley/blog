@@ -1,0 +1,24 @@
+{{> header}}
+<div class="index">
+<h1>{{dot.metadata.title}}</h1>
+{{{dot.content}}}
+<h2>Posts</h2>
+<ul>
+  {{#with root.[posts/colemak.md]}}
+    <li>
+      <span class="date">{{metadata.date}}</span>
+      </br>
+      <a class="title" href="{{path}}">{{metadata.title}}</a>
+    </li>
+  {{/with}}
+  {{#with root.[posts/48-keys-are-plenty.md]}}
+    <li>
+      <span class="date">{{metadata.date}}</span>
+      </br>
+      <a class="title" href="{{path}}">{{metadata.title}}</a>
+    </li>
+  {{/with}}
+</li>
+</ul>
+</div>
+{{> footer}}

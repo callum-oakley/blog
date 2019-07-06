@@ -1,0 +1,16 @@
+{{> header}}
+<div class="post">
+<h1>{{dot.metadata.title}}</h1>
+<div>{{{dot.content}}}</div>
+<p class="date">Written on the {{dot.metadata.date}}.</p>
+{{#if and dot.metadata.hacker_news dot.metadata.reddit}}
+  Comments on <a href="{{dot.metadata.hacker_news}}">Hacker News</a> or <a href="{{dot.metadata.reddit}}">Reddit</a>.
+{{/if}}
+{{#if and dot.metadata.hacker_news (not dot.metadata.reddit)}}
+  Comments on <a href="{{dot.metadata.hacker_news}}">Hacker News</a>.
+{{/if}}
+{{#if and (not dot.metadata.hacker_news) dot.metadata.reddit}}
+  Comments on <a href="{{dot.metadata.reddit}}">Reddit</a>.
+{{/if}}
+</div>
+{{> footer}}
