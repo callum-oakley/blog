@@ -4,13 +4,19 @@
 <div>{{{dot.content}}}</div>
 <p class="date">Written on the {{dot.metadata.date}}.</p>
 {{#if (and dot.metadata.hacker_news dot.metadata.reddit)}}
-  Comments on <a href="{{dot.metadata.hacker_news}}">Hacker News</a> or <a href="{{dot.metadata.reddit}}">Reddit</a>.
+  <p class="comments">
+    Comments on <a href="{{dot.metadata.hacker_news}}">Hacker News</a> or <a href="{{dot.metadata.reddit}}">Reddit</a>.
+  </p>
 {{/if}}
 {{#if (and dot.metadata.hacker_news (not dot.metadata.reddit))}}
-  Comments on <a href="{{dot.metadata.hacker_news}}">Hacker News</a>.
+  <p class="comments">
+    Comments on <a href="{{dot.metadata.hacker_news}}">Hacker News</a>.
+  </p>
 {{/if}}
 {{#if (and (not dot.metadata.hacker_news) dot.metadata.reddit)}}
-  Comments on <a href="{{dot.metadata.reddit}}">Reddit</a>.
+  <p class="comments">
+    Comments on <a href="{{dot.metadata.reddit}}">Reddit</a>.
+  </p>
 {{/if}}
 </div>
 {{> footer}}
