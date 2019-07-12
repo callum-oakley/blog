@@ -12,7 +12,7 @@ Despite working almost exclusively on backend software, I’m pretty enthusiasti
 If you think this site is pleasant to look at, or if I’ve made some huge typographic faux pas, then please let me know! I’d love to get better. Also, if you share my enthusiasm for typography, I have two book recommendations, both of which I enjoyed immensely:
 
 - Robert Bringhurst’s *The Elements of Typographic Style* – very thorough, a pleasure to read, and probably the most beautiful book in the world.
-- Matthew Butterick’s [Practical Typography][] – as the name implies: especially good for practical concerns like the actual <span class=“sc”>css</span> incantations to use. Also a shining example of what a digital book should look like.
+- Matthew Butterick’s [Practical Typography][] – as the name implies: especially good for practical concerns like the actual <span class=sc>css</span> incantations to use. Also a shining example of what a digital book should look like.
 
 [Quinn Text]: https://boldmonday.com/typeface/quinn
 [Concourse]: https://mbtype.com/fonts/concourse/
