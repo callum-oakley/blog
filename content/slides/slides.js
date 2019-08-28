@@ -1,7 +1,5 @@
-let n = 0
 function slideDiv() {
   const div = document.createElement("div")
-  div.id = `slide-${n++}`
   div.hidden = true
   return div
 }
