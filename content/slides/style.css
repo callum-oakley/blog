@@ -1,0 +1,31 @@
+html {
+  font-size: 44px;
+}
+
+@media (max-width: 700px) {
+  html {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 36px;
+  }
+}
+
+body {
+  max-width: 26rem;
+}
+
+#slides {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100vh;
+}
+
+.slide-number {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}

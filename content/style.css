@@ -72,6 +72,7 @@ p {
 
 h1,
 h2,
+h3,
 header,
 .title {
   font-family: "Concourse", sans-serif;
@@ -86,6 +87,11 @@ h1 {
 
 h2 {
   font-size: 1.6rem;
+  margin: 0 0 var(--v) 0;
+}
+
+h3 {
+  font-size: 1.3rem;
   margin: 0 0 var(--v) 0;
 }
 
