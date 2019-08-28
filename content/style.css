@@ -196,3 +196,14 @@ ol li::before {
   font-variant: small-caps;
   letter-spacing: 0.05em;
 }
+
+#slides {
+  vertical-align: middle;
+  max-height: 10rem;
+}
+
+.slide-number {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
