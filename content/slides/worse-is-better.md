@@ -14,7 +14,7 @@ date = "13th of April 2018"
 
 - you are Richard P. Gabriel, computer scientist
 
-- you love LISP
+- you love <span class=sc>lisp</span>
 
 - everyone else loves C
 
@@ -24,7 +24,7 @@ date = "13th of April 2018"
 
 * * *
 
-- C is worse than LISP
+- C is worse than <span class=sc>lisp</span>
 
 - but C won the race
 
@@ -146,6 +146,6 @@ improve it to 90% of the right thing.
 
 * * *
 
-Unix and C are the ultimate computer viruses.
+<span class=sc>unix</span> and C are the ultimate computer viruses.
 
 [an essay]: https://dreamsongs.com/RiseOfWorseIsBetter.html
