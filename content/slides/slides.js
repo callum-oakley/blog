@@ -53,5 +53,13 @@ document.addEventListener("keydown", e => {
       visibleSlide = Math.max(visibleSlide - 1, 0)
       render()
       break
+    case "f":
+      const requestFullscreen =
+        document.documentElement.requestFullscreen ||
+        document.documentElement.webkitRequestFullscreen ||
+        document.documentElement.mozRequestFullscreen ||
+        document.documentElement.msRequestFullscreen
+      requestFullscreen.call(document.documentElement)
+      break
   }
 })

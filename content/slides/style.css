@@ -16,6 +16,7 @@ html {
 
 body {
   max-width: 26rem;
+  padding: 0;
 }
 
 #slides {
