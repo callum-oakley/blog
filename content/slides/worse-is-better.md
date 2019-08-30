@@ -4,138 +4,138 @@ title = "Worse is better"
 date = "13th of April 2018"
 ```
 
-# worse is better
+# Worse is Better
 
 * * *
 
-## context
+## Context
 
-- it's 1991
+- It's 1991.
 
-- you are Richard P. Gabriel, computer scientist
+- You are Richard P. Gabriel, computer scientist.
 
-- you love <span class=sc>lisp</span>
+- You love <span class=sc>lisp</span>.
 
-- everyone else loves C
-
-* * *
-
-# what gives?
+- Everyone else loves C.
 
 * * *
 
-- C is worse than <span class=sc>lisp</span>
-
-- but C won the race
-
-- therefore worse is better
-
-- you write [an essay][] describing the worse is better approach
+# What gives?
 
 * * *
 
-# the right thing
+- C is worse than <span class=sc>lisp</span>.
+
+- But C won the race.
+
+- Therefore worse is better.
+
+- You write [an essay][] describing the worse is better approach.
 
 * * *
 
-## the right thing
-
-### simplicity
-
-- the design must be simple, both in implementation and interface
-
-- it is more important for the interface to be simple than the implementation
+# The Right Thing
 
 * * *
 
-## the right thing
+## The Right Thing
 
-### correctness
+### Simplicity
 
-- the design must be correct in all observable aspects
+- The design must be simple, both in implementation and interface.
 
-- incorrectness is simply not allowed
-
-* * *
-
-## the right thing
-
-### consistency
-
-- the design must not be inconsistent
-
-- a design is allowed to be slightly less simple and less complete to avoid
-  inconsistency
-
-- consistency is as important as correctness
+- It is more important for the interface to be simple than the implementation.
 
 * * *
 
-## the right thing
+## The Right Thing
 
-### completeness
+### Correctness
 
-- the design must cover as many important situations as is practical
+- The design must be correct in all observable aspects.
 
-- all reasonably expected cases must be covered
-
-- simplicity is not allowed to overly reduce completeness
+- Incorrectness is simply not allowed.
 
 * * *
 
-# worse is better
+## The Right Thing
+
+### Consistency
+
+- The design must not be inconsistent.
+
+- A design is allowed to be slightly less simple and less complete to avoid
+  inconsistency.
+
+- Consistency is as important as correctness.
 
 * * *
 
-## worse is better
+## The Right Thing
 
-### simplicity
+### Completeness
 
-- the design must be simple, both in implementation and interface
+- The design must cover as many important situations as is practical.
 
-- it is more important for the implementation to be simple than the interface
+- All reasonably expected cases must be covered.
 
-- simplicity is the most important consideration in a design
-
-* * *
-
-## worse is better
-
-### correctness
-
-- the design must be correct in all observable aspects
-
-- it is slightly better to be simple than correct
+- Simplicity is not allowed to overly reduce completeness.
 
 * * *
 
-## worse is better
+# Worse is Better
 
-### consistency
+* * *
 
-- the design must not be overly inconsistent
+## Worse is Better
 
-- consistency can be sacrificed for simplicity in some cases, but it is better
+### Simplicity
+
+- The design must be simple, both in implementation and interface.
+
+- It is more important for the implementation to be simple than the interface.
+
+- Simplicity is the most important consideration in a design.
+
+* * *
+
+## Worse is Better
+
+### Correctness
+
+- The design must be correct in all observable aspects.
+
+- It is slightly better to be simple than correct.
+
+* * *
+
+## Worse is Better
+
+### Consistency
+
+- The design must not be overly inconsistent.
+
+- Consistency can be sacrificed for simplicity in some cases, but it is better
   to drop those parts of the design that deal with less common circumstances
-  than to introduce either implementational complexity or inconsistency
+  than to introduce either implementational complexity or inconsistency.
 
 * * *
 
-## worse is better
+## Worse is Better
 
-### completeness
+### Completeness
 
-- the design must cover as many important situations as is practical
+- The design must cover as many important situations as is practical.
 
-- all reasonably expected cases should be covered
+- All reasonably expected cases should be covered.
 
-- completeness can be sacrificed in favor of any other quality
+- Completeness can be sacrificed in favor of any other quality.
 
-- in fact, completeness must be sacrificed whenever implementation simplicity
-  is jeopardized
+- In fact, completeness must be sacrificed whenever implementation simplicity
+  is jeopardized.
 
-- consistency can be sacrificed to achieve completeness if simplicity is
-  retained; especially worthless is consistency of interface
+- Consistency can be sacrificed to achieve completeness if simplicity is
+  retained; especially worthless is consistency of interface.
 
 * * *
 

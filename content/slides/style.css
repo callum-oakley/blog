@@ -1,17 +1,5 @@
 html {
-  font-size: 44px;
-}
-
-@media (max-width: 700px) {
-  html {
-    font-size: 40px;
-  }
-}
-
-@media (max-width: 500px) {
-  html {
-    font-size: 36px;
-  }
+  font-size: 2vw;
 }
 
 body {

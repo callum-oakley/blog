@@ -1,5 +1,6 @@
 #! /bin/bash
 
+./script/build
 cd build
 git init
 git add .
