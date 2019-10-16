@@ -1,3 +1,11 @@
+function getSlide() {
+  return parseInt(window.location.hash.slice(1)) || 0
+}
+
+function setSlide(n) {
+  window.location = `#${n}`
+}
+
 function slideDiv() {
   const div = document.createElement("div")
   div.hidden = true
@@ -12,8 +20,9 @@ function slideNumberDiv(i) {
 }
 
 const slides = [slideDiv()]
-let visibleSlide = 0
+
 function render() {
+  const visibleSlide = getSlide()
   slides.forEach((slide, i) => {
     slide.hidden = i !== visibleSlide
   })
@@ -44,13 +53,13 @@ document.addEventListener("keydown", e => {
     case " ":
     case "ArrowRight":
     case "ArrowDown":
-      visibleSlide = Math.min(visibleSlide + 1, slides.length - 1)
+      setSlide(Math.min(getSlide() + 1, slides.length - 1))
       render()
       break
     case "Enter":
     case "ArrowLeft":
     case "ArrowUp":
-      visibleSlide = Math.max(visibleSlide - 1, 0)
+      setSlide(Math.max(getSlide() - 1, 0))
       render()
       break
     case "f":
