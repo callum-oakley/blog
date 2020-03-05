@@ -53,16 +53,19 @@ document.addEventListener("keydown", e => {
     case " ":
     case "ArrowRight":
     case "ArrowDown":
+      e.preventDefault()
       setSlide(Math.min(getSlide() + 1, slides.length - 1))
       render()
       break
     case "Enter":
     case "ArrowLeft":
     case "ArrowUp":
+      e.preventDefault()
       setSlide(Math.max(getSlide() - 1, 0))
       render()
       break
     case "f":
+      e.preventDefault()
       const requestFullscreen =
         document.documentElement.requestFullscreen ||
         document.documentElement.webkitRequestFullscreen ||
