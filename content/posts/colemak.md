@@ -39,7 +39,7 @@ Being a student, and it being the summer holidays, I had the opportunity to swit
 
 During the first few days, every letter I typed involved consciously stopping my muscle memory from taking over, actively remembering where the key is, and only then hitting it. Frustrating is an understatement. Gradually though I got faster and faster at consciously finding the keys I wanted, and then started to let my muscle memory take the reins again. From that point on the process of feeling my brain re-wire itself became really rewarding. Here’s a graph I found of my progress over the first 45 days:
 
-![Colemak progress](/images/colemak-progress.png)
+![Colemak progress](../images/colemak-progress.png)
 
 The sharp decline in gradient at day 14 corresponds to starting a software engineering internship, which also served as very good motivation to get to a reasonable speed in the first two weeks. I’ve long since stopped updating this graph, but still do the occasional typing test, and these days fairly commonly reach 100 <span class=sc>wpm</span>.
 
