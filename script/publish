@@ -1,9 +1,0 @@
-#! /bin/bash
-
-./script/build
-cd build
-git init
-git add .
-git commit -m publish
-git remote add origin git@github.com:callum-oakley/callum-oakley.github.io.git
-git push -f
