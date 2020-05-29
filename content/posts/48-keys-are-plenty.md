@@ -8,7 +8,7 @@ reddit = "https://www.reddit.com/r/MechanicalKeyboards/comments/bvwcrz/48_keys_a
 
 I use my computer a lot, and I mostly interact with it through text, so taking some time to think about my keyboard is certainly time well spent. For about three years now, I’ve been a devoted user of the [Planck][]: a programmable grid of 48 single unit keys.
 
-![planck](../images/planck.jpg)
+![planck](/images/planck.jpg)
 
 Apart from occasionally using the internal keyboard on my laptop I haven’t used another keyboard since making the switch, and am fully convinced that the Planck is an improvement on a conventional board in every way. Bear with me.
 
