@@ -96,9 +96,10 @@ h3 {
 }
 
 header {
-  font-size: 1.6rem;
-  font-variant: small-caps;
-  margin: 0 0 calc(2 * var(--v)) 0;
+  font-size: 1.2rem;
+  font-feature-settings: "ss02", "case";
+  letter-spacing: 0.1em;
+  margin: var(--v) 0 calc(2 * var(--v)) 0;
 }
 
 img {
