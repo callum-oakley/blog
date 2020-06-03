@@ -35,7 +35,7 @@ To which I respond:
 
 In much the same way as the shift keys allow us to use a single key to represent both `a` and `A` (the upper case “layer” if you like), we can introduce more modifiers to take us to a layer of symbols, movement keys, media keys, a macro pad. Better still, we can position these modifiers on our freed up bottom row, so that they can be held with a thumb. I would far rather depress a key under my thumb to access symbols on the home row than move my fingers two keys up to a number row *and* have to hit shift (and don’t get me started on moving your hand to the arrow cluster).
 
-To illustrate, this is what the base layer on my keyboard currently looks like (I’m also a [Colemak][] user, but that’s a story for another day…):
+To illustrate, this is what the base layer on my keyboard currently looks like (I’m also a [Colemak][] user, but that’s [a story for another day…][]):
 
     tab  q   w   f   p   g   j   l   u   y   ;   -
     bsp  a   r   s   t   d   h   n   e   i   o   '
@@ -61,3 +61,4 @@ This is a distillation of explanations that I give to colleagues and friends aft
 [Colemak]: https://colemak.com/
 [<span class=sc>qmk</span> firmware]: https://github.com/qmk/qmk_firmware
 [my keymap]: https://github.com/qmk/qmk_firmware/blob/master/keyboards/planck/keymaps/callum/keymap.c
+[a story for another day…]: colemak
