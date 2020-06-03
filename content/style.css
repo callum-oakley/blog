@@ -2,32 +2,35 @@
   font-family: "Quinn";
   font-style: normal;
   font-weight: 400;
-  src: local("Quinn Text"), local("QuinnText"),
-    url("/fonts/QuinnText-Regular.woff2") format("woff2");
+  src: url("/fonts/QuinnText-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Quinn";
   font-style: italic;
   font-weight: 400;
-  src: local("Quinn Text Italic"), local("QuinnText Italic"),
-    url("/fonts/QuinnText-Italic.woff2") format("woff2");
+  src: url("/fonts/QuinnText-Italic.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Concourse";
   font-style: normal;
   font-weight: 400;
-  src: local("Concourse"),
-    url("/fonts/concourse_t4_regular.woff") format("woff");
+  src: url("/fonts/concourse_t4_regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "ConcourseC";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/concourse_c4_regular.woff") format("woff");
 }
 
 @font-face {
   font-family: "IBM Plex Mono";
   font-style: normal;
   font-weight: 400;
-  src: local("IBM Plex Mono"), local("IBMPlexMono"),
-    url("/fonts/IBMPlexMono-Regular.woff2") format("woff2");
+  src: url("/fonts/IBMPlexMono-Regular.woff2") format("woff2");
 }
 
 :root {
@@ -73,7 +76,6 @@ p {
 h1,
 h2,
 h3,
-header,
 .title {
   font-family: "Concourse", sans-serif;
   font-feature-settings: "ss02";
@@ -81,24 +83,25 @@ header,
 }
 
 h1 {
-  font-size: 2.3rem;
+  font-size: 2.2rem;
   margin: 0 0 var(--v) 0;
 }
 
 h2 {
-  font-size: 1.6rem;
-  margin: 0 0 var(--v) 0;
+  font-size: 1.4rem;
+  margin: var(--v) 0 calc(0.5 * var(--v)) 0;
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin: 0 0 var(--v) 0;
 }
 
 header {
   font-size: 1.2rem;
+  font-family: "ConcourseC", sans-serif;
   font-feature-settings: "ss02", "case";
-  letter-spacing: 0.1em;
+  font-weight: 400;
   margin: var(--v) 0 calc(2 * var(--v)) 0;
 }
 
@@ -124,7 +127,7 @@ code {
   font-size: 0.9rem;
 }
 
-p > code {
+:not(pre) > code {
   padding: 0 0.2em;
 }
 
@@ -202,4 +205,13 @@ ol li::before {
 .sc {
   font-variant: small-caps;
   letter-spacing: 0.05em;
+}
+
+.cc {
+  font-family: "ConcourseC", sans-serif;
+  font-feature-settings: "ss02";
+}
+
+.zh {
+  font-size: 0.9rem;
 }
