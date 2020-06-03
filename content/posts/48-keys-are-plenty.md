@@ -40,14 +40,14 @@ To illustrate, this is what the base layer on my keyboard currently looks like (
     tab  q   w   f   p   g   j   l   u   y   ;   -
     bsp  a   r   s   t   d   h   n   e   i   o   '
     shi  z   x   c   v   b   k   m   ,   .   /  shi
-    fun ctr alt cmd sym ent spc mov cmd ctr alt fun
+    fun ctr alt cmd mov ent spc sym cmd ctr alt fun
 
 Depressing `sym` takes us to a layer of symbols and numbers:
 
-    esc  1   2   3   4   5   6   7   8   9   0   –
-    del  !   @   #   $   %   ^   &   *   (   )   £
-         ~   `   +   =   |   \   [   ]   {   }
-                    sym
+    esc  7   5   3   1   9   8   0   2   4   6   –
+    del  @   $   =   (   [   ]   )   *   #   +   £
+         `   |   \   {   ~   ^   }   &   !   %
+                                sym
 
 And depressing `mov` takes us to a layer with movement keys (arrow cluster, home, end, page up/down, window management hotkeys).
 
