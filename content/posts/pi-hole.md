@@ -50,8 +50,6 @@ If your router supports it, it looks like the easiest final step is to [set your
 
 A <span class=sc>dhcp</span> server assigns <span class=sc>ip</span> addresses to devices on your network, as well as 
 
-TODO anchor links
-
 [Against an Increasingly User-Hostile Web]: https://neustadt.fr/essays/against-a-user-hostile-web/
 [Pi-hole]: https://pi-hole.net
 [Raspberry Pi]: https://www.raspberrypi.org

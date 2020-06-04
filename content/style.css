@@ -143,6 +143,17 @@ a {
   text-decoration: none;
 }
 
+h2 > a {
+  color: inherit;
+  position: relative;
+}
+
+h2 > a:hover:before {
+  content: "#";
+  position: absolute;
+  left: -1em;
+}
+
 footer {
   font-size: 0.8rem;
   text-align: center;
