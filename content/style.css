@@ -226,3 +226,13 @@ ol li::before {
 .zh {
   font-size: 0.9rem;
 }
+
+hr {
+  border: none;
+  text-align: center;
+  margin: 0 0 var(--v) 0;
+}
+
+hr:after {
+  content: "⭑";
+}

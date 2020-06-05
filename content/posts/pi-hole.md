@@ -1,10 +1,10 @@
 ```
 template = "post"
 title = "Network-wide ad blocking with Pi-hole"
-date = "3rd of June 2020"
+date = "5th of June 2020"
 ```
 
-Recently I read [Against an Increasingly User-Hostile Web][] by Parimal Satyal (which is actually quite old by now, but it was my first time seeing it). It’s a brilliant piece, and if you can only read one thing today, read that instead of this. I left the article pretty upset, and, in need of *somewhere* to channel that energy, I set out to install a [Pi-hole][] on my home network.
+Recently I read [Against an Increasingly User-Hostile Web][] by Parimal Satyal (which is a few years old now, but increasingly relevant). It’s a brilliant piece, and if you can only read one thing today, read that instead of this. I left the article pretty upset, and, in need of *somewhere* to channel that energy, I set out to install a [Pi-hole][] on my home network.
 
 Pi-hole is a network-wide advert and tracking blocker, which you can run on a [Raspberry Pi][]. (I’m more concerned with tracking than adverts, but please consider “ads” to be an abbreviation for “adverts and tracking” for the rest of this article.) Pi-hole blocks ads on every browser and app on every device on your local network, without you having to do any configuration on device. Somewhere you can’t normally install an ad blocker? No ads. A friend visits and connects to your wifi? No ads for them either.
 
@@ -26,7 +26,7 @@ I didn’t have a <span class=sc>usb</span> mouse, and the Pi Zero only has one 
 
 ## Basic Raspberry Pi setup
 
-1. Insert the <span class=sc>sd</span> card in to your Pi, plug in your keyboard and monitor, and only then hook it up to the power supply.
+1. Insert the <span class=sc>sd</span> card into your Pi, plug in your keyboard and monitor, and only then hook it up to the power supply.
 2. You should be greeted with the <span class=sc>noobs</span> installer. Connect to wifi and then follow the prompts to install Raspbian (or maybe Raspberry <span class=sc>os</span> now since the name changed recently).
 3. Follow the post install guide that pops up when you arrive at the desktop for the first time to configure language, wifi, etc.
 
@@ -42,13 +42,21 @@ Now you can unplug the monitor and keyboard, and do everything else over <span c
 
 ## Install Pi-hole
 
-Once you’ve got <span class=sc>ssh</span> access to your Pi, you can install Pi-hole by [piping the install script in to bash][pi-hole install] (there are other options if you find piping to bash objectionable) and following some more prompts. The defaults all looked good to me.
+Once you’ve got <span class=sc>ssh</span> access to your Pi, you can install Pi-hole by [piping the install script into bash][pi-hole install] (there are other options if you find piping to bash objectionable) and following some more prompts. The defaults all looked good to me.
 
 ## Route your network’s <span class=cc>dns</span> traffic to the Pi-hole
 
-If your router supports it, it looks like the easiest final step is to [set your Pi-hole’s <span class=sc>ip</span> address to be your router’s *only* <span class=sc>dns</span> entry][router dns]. Unfortunately, my crappy <span class=sc>isp</span> provided router doesn’t let me change the <span class=sc>dns</span> entries. Instead, I had to disable <span class=sc>dhcp</span> on the router, and [enable Pi-hole’s built in <span class=sc>dhcp</span> server][pi-hole dhcp].
+If your router supports it, it looks like the easiest final step is to [set your Pi-hole’s <span class=sc>ip</span> address to be your router’s *only* <span class=sc>dns</span> entry][router dns]. Unfortunately, my router doesn’t let me change the <span class=sc>dns</span> entries. Instead, I had to disable <span class=sc>dhcp</span> on the router, and [enable Pi-hole’s built in <span class=sc>dhcp</span> server][pi-hole dhcp].
 
-A <span class=sc>dhcp</span> server assigns <span class=sc>ip</span> addresses to devices on your network, as well as 
+A <span class=sc>dhcp</span> server assigns <span class=sc>ip</span> addresses to devices on your network, as well as telling devices where to find the router and the <span class=sc>dns</span> server (among other things). By disabling the router’s <span class=sc>dhcp</span> server, devices will automatically use the Pi-hole’s instead, which also means the Pi-hole becomes the authority on which <span class=sc>dns</span> server to use, and can point to itself.
+
+The configuration here is mostly straightforward but check the Pi’s <span class=sc>dhcp</span> settings carefully. I messed up and failed to set the router <span class=sc>ip</span> address (wrongly assuming the default was correct), which briefly left me able to resolve <span class=sc>dns</span> queries but unable to actually make any requests… If you’re feeling patient then devices will move to the new <span class=sc>dns</span> server next time they renew their <span class=sc>dhcp</span> lease, but you can accelerate the process by finding the option to *Renew Lease* in your device’s network settings.
+
+* * *
+
+Since setting it up, the Pi-hole has been humming along quietly blocking an astonishing 23% of unwanted <span class=sc>dns</span> traffic with no issues, and the internet is a better place because of it.
+
+One final note: if you are able, please find other ways to support content creators and services that are normally funded by ad revenue. Buy a digital subscription to your favourite newspaper, pay for services and apps you like, support creators directly. I would love to see the industry at large move away from aggressive tracking and advertising, but the only way we’re going to see that happen is if we make alternatives viable.
 
 [Against an Increasingly User-Hostile Web]: https://neustadt.fr/essays/against-a-user-hostile-web/
 [Pi-hole]: https://pi-hole.net
