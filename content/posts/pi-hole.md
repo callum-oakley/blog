@@ -1,7 +1,7 @@
 ```
 template = "post"
 title = "Network-wide ad blocking with Pi-hole"
-date = "5th of June 2020"
+date = "6th of June 2020"
 ```
 
 Recently I read [Against an Increasingly User-Hostile Web][] by Parimal Satyal (which is a few years old now, but increasingly relevant). It’s a brilliant piece, and if you can only read one thing today, read that instead of this. I left the article pretty upset, and, in need of *somewhere* to channel that energy, I set out to install a [Pi-hole][] on my home network.
