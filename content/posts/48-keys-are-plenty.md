@@ -45,7 +45,7 @@ To illustrate, this is what the base layer on my keyboard currently looks like (
 Depressing `sym` takes us to a layer of symbols and numbers:
 
     esc  7   5   3   1   9   8   0   2   4   6   –
-    del  @   $   =   (   [   ]   )   *   #   +   £
+     ‘   @   $   =   (   [   ]   )   *   #   +   ’
          `   |   \   {   ~   ^   }   &   !   %
                                 sym
 
@@ -53,7 +53,7 @@ And depressing `mov` takes us to a layer with movement keys (arrow cluster, home
 
 I’m a full time software developer, so I type a lot of symbols, and whenever I have to use a conventional keyboard I’m frustrated by how much longer it takes to reach them. With thumb modifiers typing symbols and numbers is *easier than typing upper case letters with shift*. It would be a bold claim indeed to assert the same about the situation on a full sized keyboard.
 
-The final trump card of the Planck is its programability. If you’re sold on the physical layout, then the wonderful [<span class=sc>qmk</span> firmware][] can be endlessly customised. Here’s [my keymap][] for reference, but <span class=sc>qmk</span> supports a whole host of advanced features that I’ve never touched.
+The final trump card of the Planck is its programmability. If you’re sold on the physical layout, then the wonderful [<span class=sc>qmk</span> firmware][] can be endlessly customised. Here’s [my keymap][] for reference, but <span class=sc>qmk</span> supports a whole host of advanced features that I’ve never touched.
 
 This is a distillation of explanations that I give to colleagues and friends after they inevitably ask, “What is that thing on your desk?”, or a response to the common knee jerk reaction online that keyboards like the Planck are cute and interesting, but that you couldn’t possibly get any real work done with them. I don’t think this board is for everyone, but I hope if nothing else I’ve convinced you that time spent thinking about your keyboard can be just as valuable as time spent tinkering with your vim config.
 
