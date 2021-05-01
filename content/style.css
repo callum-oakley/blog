@@ -223,10 +223,6 @@ ol li::before {
   font-feature-settings: "ss02";
 }
 
-.zh {
-  font-size: 0.9rem;
-}
-
 hr {
   border: none;
   text-align: center;

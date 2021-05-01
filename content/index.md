@@ -3,10 +3,9 @@ template = "index"
 title = "Index"
 ```
 
-Welcome to my blog – which apparently I only write posts for in June… My interests include mathematics, technology, tea, and East Asian language and culture (<span class=zh>我在学中文</span>). I’ve also got a budding interest in typography but don’t claim to really know what I’m doing.
+Welcome to my rarely updated blog. My interests include mathematics, technology, tea, and the game of go. I speak a little Chinese.
 
-Currently living in London. Have a gander at [my GitHub][]. Shoot me [an email][].
+Currently living in London. Have a gander at [my Github][]. Shoot me [an email][].
 
-[Pusher]: https://pusher.com/
 [my GitHub]: https://github.com/callum-oakley
 [an email]: mailto:hello@callumoakley.net

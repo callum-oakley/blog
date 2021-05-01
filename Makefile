@@ -25,7 +25,6 @@ serve: build/.dirstamp
 pull-private:
 	git clone $(publishrepo) && \
 	cp -r $(publishdir)/fonts content/ && \
-	cp -r $(publishdir)/slides/private content/slides/ && \
 	rm -rf $(publishdir)
 
 .PHONY: clean

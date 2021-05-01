@@ -4,6 +4,13 @@
 {{{dot.content}}}
 <h2>Posts</h2>
 <ul>
+  {{#with root.[posts/nonsense.md]}}
+    <li>
+      <span class="date">{{metadata.date}}</span>
+      </br>
+      <a class="title" href="{{path}}">{{metadata.title}}</a>
+    </li>
+  {{/with}}
   {{#with root.[posts/pi-hole.md]}}
     <li>
       <span class="date">{{metadata.date}}</span>
