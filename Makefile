@@ -19,7 +19,7 @@ publish: build/.publish
 
 .PHONY: serve
 serve: build/.dirstamp
-	http-server build
+	npx http-server build
 
 .PHONY: pull-private
 pull-private:
